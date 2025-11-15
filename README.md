@@ -10,12 +10,12 @@ This is a fork of [```@dreamonkey/vue-signalr```](https://github.com/dreamonkey/
 
 Install this package and SignalR peer dependency
 
-`$ yarn add @dreamonkey/vue-signalr @microsoft/signalr`
+`$ npm install @kaskatiyski/vue-signalr @microsoft/signalr`
 
 Apply the plugin providing a `HubConnection` instance
 
 ```ts
-import { VueSignalR } from "@dreamonkey/vue-signalr";
+import { VueSignalR } from "@kaskatiyski/vue-signalr";
 import { HubConnectionBuilder } from "@microsoft/signalr";
 import { createApp } from "vue";
 import App from "./App.vue";
@@ -38,7 +38,7 @@ createApp(App)
 ## Usage
 
 ```ts
-import { useSignalR } from "@dreamonkey/vue-signalr";
+import { useSignalR } from "@kaskatiyski/vue-signalr";
 import { inject } from "vue";
 
 export default {
@@ -80,13 +80,13 @@ signalr.off("MessageReceived"); // Remove all listeners on `MessageReceived` eve
 
 ### Type-safety
 
-Command and Events names and payloads are registered via type augmentation of dedicated interfaces (`SignalREvents` and `SignalRCommands`) into `@dreamonkey/vue-signalr` scope.
+Command and Events names and payloads are registered via type augmentation of dedicated interfaces (`SignalREvents` and `SignalRCommands`) into `@kaskatiyski/vue-signalr` scope.
 These types are later used to provide you autocompletion.
 
 **The package works with plain strings too, you're not required to register Commands/Events typings**
 
 ```ts
-import "@dreamonkey/vue-signalr";
+import "@kaskatiyski/vue-signalr";
 
 interface MessageReceivedPayload {
   message: string;
@@ -96,7 +96,7 @@ interface SendMessagePayload {
   message: string;
 }
 
-declare module "@dreamonkey/vue-signalr" {
+declare module "@kaskatiyski/vue-signalr" {
   interface SignalREvents {
     // Define an event, its payload is a single parameter of type `MessageReceivedPayload`
     MessageReceived: MessageReceivedPayload;
@@ -122,7 +122,7 @@ declare module "@dreamonkey/vue-signalr" {
 In case you need to remap a Command or Event name, you could do so using `remapMethod` or `remapMethods` helpers
 
 ```ts
-import { remapMethod } from "@dreamonkey/vue-signalr";
+import { remapMethod } from "@kaskatiyski/vue-signalr";
 
 remapMethod("receiveMessageWithStrangeMethodName", "MessageReceived");
 
@@ -137,7 +137,7 @@ remapMethods([
 You can react to connection/reconnection errors providing a `failFn` option into the plugin options
 
 ```ts
-import { VueSignalR } from "@dreamonkey/vue-signalr";
+import { VueSignalR } from "@kaskatiyski/vue-signalr";
 import { createApp } from "vue";
 import App from "./App.vue";
 
