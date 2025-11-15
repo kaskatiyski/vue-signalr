@@ -21,6 +21,10 @@ export interface VueSignalRConfig {
   autoOffInsideComponentScope: boolean;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   failFn: (error: any) => void;
+  /**
+   * @default true
+   */
+  autoConnect?: boolean;
 }
 
 export interface SignalROnOptions<Payload extends unknown[]> {

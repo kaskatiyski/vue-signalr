@@ -22,6 +22,10 @@ export function createService({
   connection.onclose(failFn);
 
   async function init() {
+    await connect()
+  }
+
+  async function connect() {
     try {
       await connection.start();
       connected.value = true;
@@ -29,9 +33,18 @@ export function createService({
         const action = invokeQueue.shift();
         // "action?.()" syntax isn't transpiled by TS due to esnext target
         // and would break projects using the package
-        // eslint-disable-next-line @typescript-eslint/no-unused-expressions
+        // eslint-disable-next-line @typescript-eslint/prefer-optional-chain, @typescript-eslint/no-unused-expressions
         action && action();
       }
+    } catch (error) {
+      failFn(error);
+    }
+  }
+
+  async function disconnect() {
+    try {
+      await connection.stop();
+      connected.value = false;
     } catch (error) {
       failFn(error);
     }
@@ -123,6 +136,8 @@ export function createService({
 
   return {
     init,
+    connect,
+    disconnect,
     connected,
     invoke,
     on,

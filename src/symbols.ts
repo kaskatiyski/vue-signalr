@@ -15,6 +15,8 @@ type CreateServiceReturntype = ReturnType<typeof createService>;
 // due to the holder interfaces being empty at build time
 export interface SignalRService {
   init: CreateServiceReturntype["init"];
+  connect: CreateServiceReturntype["connect"];
+  disconnect: CreateServiceReturntype["disconnect"];
   connected: CreateServiceReturntype["connected"];
   invoke: <Key extends SignalRCommandKey>(
     methodName: Key,

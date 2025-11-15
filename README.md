@@ -22,7 +22,13 @@ const connection = new HubConnectionBuilder()
   .withUrl("http://localhost:5000/signalr")
   .build();
 
-createApp(App).use(VueSignalR, { connection }).mount("#app");
+createApp(App)
+  .use(VueSignalR,
+    {
+      connection,
+      autoConnect: true,
+    })
+  .mount("#app");
 ```
 
 ## Usage
@@ -138,6 +144,7 @@ const connection = new HubConnectionBuilder()
 createApp(App)
   .use(VueSignalR, {
     connection,
+    autoConnect: true,
     failFn: () => {
       /* do stuff */
     },

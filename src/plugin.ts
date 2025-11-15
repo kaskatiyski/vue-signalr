@@ -9,6 +9,13 @@ export const VueSignalR = {
 
     app.provide(SignalRSymbol, service);
 
-    void service.init();
+    // "??" syntax isn't transpiled by TS due to esnext target
+    // and would break projects using the package
+    // Default autoConnect to true if not explicitly set
+    const autoConnect = options.autoConnect !== false;
+
+    if (autoConnect) {
+      void service.init();
+    }
   },
 };
