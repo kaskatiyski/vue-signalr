@@ -1,13 +1,13 @@
 {
-  "name": "@dreamonkey/vue-signalr",
-  "version": "1.2.0",
-  "description": "SignalR plugin for Vue 3",
+  "name": "@kaskatiyski/vue-signalr",
+  "version": "1.0.0",
+  "description": "SignalR plugin for Vue 3 (Fork)",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/dreamonkey/vue-signalr.git"
+    "url": "git+https://github.com/kaskatiyski/vue-signalr.git"
   },
-  "homepage": "https://github.com/dreamonkey/vue-signalr/blob/master/README.md",
-  "bugs": "https://github.com/dreamonkey/vue-signalr/issues",
+  "homepage": "https://github.com/kaskatiyski/vue-signalr",
+  "bugs": "https://github.com/kaskatiyski/vue-signalr/issues",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": [
@@ -17,14 +17,19 @@
     "lint": "eslint --ext .js,.ts,.vue ./ --fix --report-unused-disable-directives",
     "format": "prettier --write \"**/*.{json,md,graphql,vue,js,ts}\" --ignore-path .gitignore",
     "build": "rimraf dist && tsc --declaration --project tsconfig.build.json",
-    "deploy": "pnpm build && pnpm publish --tag latest"
+    "deploy": "npm run build && npm publish --access public --tag latest"
   },
   "keywords": [
     "vue",
+    "vue3",
     "signalr",
-    "websocket"
+    "websocket",
+    "vue-plugin"
   ],
   "author": "Paolo Caleffi <p.caleffi@dreamonkey.com> (https://github.com/IlCallo)",
+  "contributors": [
+    "Ivan Kaskatiyski <kaskatiyski@users.noreply.github.com> (https://github.com/kaskatiyski)"
+  ],
   "license": "MIT",
   "peerDependencies": {
     "@microsoft/signalr": "^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0",

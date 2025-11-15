@@ -1,6 +1,10 @@
 # vue-signalr
 
-A Vue3 plugin which wraps SignalR and provider stricter typings.
+A Vue3 plugin which wraps SignalR and provides stricter typings.
+
+This is a fork of [```@dreamonkey/vue-signalr```](https://github.com/dreamonkey/vue-signalr) with the following added features:
+
+- Allow manual connect/disconnect using ```autoConnect``` parameter (default: ```true```)
 
 ## Installation
 

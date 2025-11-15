@@ -13,13 +13,13 @@ export * from "./symbols";
  *
  * @example
  * ```ts
- * import '@dreamonkey/vue-signalr';
+ * import '@kaskatiyski/vue-signalr';
  *
  * interface SendMessagePayload {
  *   message: string;
  * }
  *
- * declare module '@dreamonkey/vue-signalr' {
+ * declare module '@kaskatiyski/vue-signalr' {
  *   interface SignalRCommands {
  *     SendMessage: SendMessagePayload, // Define a command and its payload
  *     JoinMainTopic: false, // Define a command with no payload
@@ -35,13 +35,13 @@ export interface SignalRCommands {}
  *
  * @example
  * ```ts
- * import '@dreamonkey/vue-signalr';
+ * import '@kaskatiyski/vue-signalr';
  *
  * interface MessageReceivedPayload {
  *   message: string;
  * }
  *
- * declare module '@dreamonkey/vue-signalr' {
+ * declare module '@kaskatiyski/vue-signalr' {
  *   interface SignalREvents {
  *     MessageReceived: MessageReceivedPayload, // Define an event and its payload
  *     MainTopicJoined: false, // Define an event with no payload
